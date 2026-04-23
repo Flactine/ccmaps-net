@@ -128,9 +128,7 @@ namespace CNCMaps.GUI {
 			cbTunnelPaths.Checked = Settings.Default.tunnelpaths;
 			cbTunnelPosition.Checked = Settings.Default.tunnelpos;
 
-			tbBatchInput.Lines = (Settings.Default.input ?? "")
-				.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
-
+			tbBatchInput.Lines = Settings.Default.batchinput.Split('\n');
 
 			ckbCheckForUpdates.Checked = !Settings.Default.skipupdatecheck;
 
@@ -186,7 +184,7 @@ namespace CNCMaps.GUI {
 			Settings.Default.tunnelpaths = cbTunnelPaths.Checked;
 			Settings.Default.tunnelpos = cbTunnelPosition.Checked;
 
-			Settings.Default.input = String.Join("\n", tbBatchInput.Lines);
+			Settings.Default.batchinput = String.Join("\n", tbBatchInput.Lines);
 
 			Settings.Default.skipupdatecheck = !ckbCheckForUpdates.Checked;
 
